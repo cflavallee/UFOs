@@ -34,7 +34,7 @@ function handleClick() {
     };
 
    // Rebuild the table using the filtered data
-  m// @NOTE: If no date was entered, then filteredData will
+  // @NOTE: If no date was entered, then filteredData will
   // just be the original tableData.
   buildTable(filteredData);
 };
