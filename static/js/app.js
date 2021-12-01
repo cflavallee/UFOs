@@ -64,16 +64,17 @@ function updateFilters() {
 
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
-    if (date) {
+    for (i=0; i<filteredData.length; i++) {
+      if (date) {
         filteredData = filteredData.filter(row => row.datetime === date)};
-    if (changedElement) {
+      if (changedElement) {
         filteredData = filteredData.filter(row => row.city === changedElement)};
-    if (state) {
+      if (state) {
         filteredData = filteredData.filter(row => row.state === state)};
-    if (country) {
+      if (country) {
         filteredData = filteredData.filter(row => row.country === country)};
-    if (shape) {
-        filteredData = filteredData.filter(row => row.shape === shape)
+      if (shape) {
+        filteredData = filteredData.filter(row => row.shape === shape)};
       };
   
     // 10. Finally, rebuild the table using the filtered data
