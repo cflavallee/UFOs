@@ -60,7 +60,7 @@ function updateFilters() {
   
     // 8. Set the filtered data to the tableData.
     let filteredData = tableData;
-    let input = d3.selectAll("input");
+    let input = d3.selectAll("input").property("value");
     // let date = d3.select("#datetime").property("value");
     // let city = d3.select("#city").property("value");
     // let state = d3.select("#state").property("value");
@@ -69,9 +69,9 @@ function updateFilters() {
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
     // for (i=0; i<filteredData.length; i++) {
-    console.log(input);
+      console.log(input);
       if (input) {
-        filteredData = filteredData.filter(row => input === input);
+        filteredData = filteredData.filter(row => row === input);
       };
       //   if (date) {
       //     filteredData = filteredData.filter(row => row.datetime === date);
