@@ -49,57 +49,45 @@ function updateFilters() {
     else {
       delete filters[filterId];
     }
-  // 
+ 
     // 6. Call function to apply all filters and rebuild the table
     filterTable();
+    
   }
-  
+
   // 7. Use this function to filter the table when data is entered.
   function filterTable() {
-  
+    
     // 8. Set the filtered data to the tableData.
     let filteredData = tableData;
-    
-    let date = d3.select("#datetime").property("value");
-    let city = d3.select("#city").property("value");
-    let state = d3.select("#state").property("value");
-    let country = d3.select("#country").property("value");
-    let shape = d3.select("#shape").property("value");
+
  
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
 
-    if (date) {
-      filteredData = filteredData.filter(row => row.datetime === date);
-        };
-    if (city) {
-      filteredData = filteredData.filter(row => row.city === city);
-        };
-    if (state) {
-      filteredData = filteredData.filter(row => row.state === state);
-        };
-    if (country) {
-        filteredData = filteredData.filter(row => row.country === country);
-          };
-    if (shape) {
-      filteredData = filteredData.filter(row => row.shape === shape);
-                  
-         };
-      
-        
+    for (let value in filters) {
+          if (filters[value]) {
+            filteredData = filteredData.filter(row => row[value] === filters[value]);
+            }
+          };   
+             
   
     // 10. Finally, rebuild the table using the filtered data
     buildTable(filteredData);
+    
     
   };
 
 let btnClear = document.querySelector('button');
 let inputs = document.querySelectorAll('input');
- 
+
 btnClear.addEventListener('click', () => {
     inputs.forEach(input =>  input.value = '');
+    for (value in filters) {
+      delete filters[value];
+    };
+  buildTable(tableData)
 
-    buildTable(tableData)
 });
   
   // 2. Attach an event to listen for changes to each filter
