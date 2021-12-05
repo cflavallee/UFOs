@@ -8,9 +8,15 @@ To begin filtering the table, one needs to enter an input in one or more of the 
 
 ![This is an image](https://github.com/cflavallee/UFOs/blob/main/filter%20image1.png)
 
+Below is a filtered search using a Date of "1/4/2010" and a Shape of "Light".
+
+![This is an image](https://github.com/cflavallee/UFOs/blob/main/filter%20image1.png)
+
 
 Once a search is complete, the user can clear the search fields and reset the table back to the full dataset.  The image below shows the table reseting after the "El Cajon" search above was done. 
 
-![This is an image](https://github.com/cflavallee/UFOs/blob/main/filter%20image2.PNG)
+![This is an image](https://github.com/cflavallee/UFOs/blob/main/filter%20image3.PNG)
 
 ## Summary
+One drawback of the current UFO site design is that the entire table is present when the page loads or when a search is cleared.  This makes the site look a bit cluttered and would really not work well with a larger dataset.  Updating the code to hide the table until filtering is complete would improve the look and user-friendliness of the set.  
+
