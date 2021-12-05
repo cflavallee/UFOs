@@ -59,7 +59,7 @@ function updateFilters() {
   
     // 8. Set the filtered data to the tableData.
     let filteredData = tableData;
-    let input = d3.selectAll("#input");
+    
     let date = d3.select("#datetime").property("value");
     let city = d3.select("#city").property("value");
     let state = d3.select("#state").property("value");
@@ -69,32 +69,41 @@ function updateFilters() {
     // 9. Loop through all of the filters and keep any data that
     // matches the filter values
 
-        if (date) 
-          filteredData = filteredData.filter(row => row.datetime === date);
+    if (date) {
+      filteredData = filteredData.filter(row => row.datetime === date);
         };
-        if (city) {
-          filteredData = filteredData.filter(row => row.city === city);
+    if (city) {
+      filteredData = filteredData.filter(row => row.city === city);
         };
-        if (state) {
-          filteredData = filteredData.filter(row => row.state === state);
+    if (state) {
+      filteredData = filteredData.filter(row => row.state === state);
         };
-        if (country) {
-            filteredData = filteredData.filter(row => row.country === country);
+    if (country) {
+        filteredData = filteredData.filter(row => row.country === country);
           };
-        if (shape) {
-          filteredData = filteredData.filter(row => row.shape === shape);
+    if (shape) {
+      filteredData = filteredData.filter(row => row.shape === shape);
                   
-      //   };
-      // });   
+         };
+      
         
   
     // 10. Finally, rebuild the table using the filtered data
     buildTable(filteredData);
     
   };
+
+
+let btnClear = fields.querySelector('button');
+let inputs = fields.querySelectorAll('input');
+ 
+btnClear.addEventListener('click', () => {
+    inputs.forEach(input =>  input.value = '');
+    buildTable(tableData)
+});
   
   // 2. Attach an event to listen for changes to each filter
   d3.selectAll("input").on("change", updateFilters);
-  
+  //d3.selectAll("clearButton").on("click", clear);
   // Build the table when the page loads
   buildTable(tableData);
