@@ -93,17 +93,18 @@ function updateFilters() {
     
   };
 
-
-let btnClear = fields.querySelector('button');
-let inputs = fields.querySelectorAll('input');
+let btnClear = document.querySelector('button');
+let inputs = document.querySelectorAll('input');
  
 btnClear.addEventListener('click', () => {
     inputs.forEach(input =>  input.value = '');
+
     buildTable(tableData)
 });
   
   // 2. Attach an event to listen for changes to each filter
   d3.selectAll("input").on("change", updateFilters);
-  //d3.selectAll("clearButton").on("click", clear);
-  // Build the table when the page loads
-  buildTable(tableData);
+ 
+
+// Build the table when the page loads
+buildTable(tableData);
